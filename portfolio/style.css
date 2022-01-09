@@ -1,3 +1,120 @@
+:root {
+    --color-dark: #000000;
+    --color-gold: #BDAE82;
+    --color-white: #FFFFFF;
+    --font-inter: 'Inter', Arial, 'Helvetica', sans-serif;
+    --font-merriweather: 'Merriweather', 'Times New Roman', 'Times', serif;
+}
+
 * {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-inter);
+    font-weight: 400;
+    color: var(--color-white);
+    background-color: var(--color-dark);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 1440px;
+    margin: 0 auto;
+    outline: 1px solid var(--color-white);
+}
+
+/* Header */
+
+.header-img {
+    background-image: url('./assets/img/header-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center 0;
+}
+
+.header {
+    display: flex;
+    padding: 20px;
+}
+
+.logo {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-image: url('./assets/svg/logo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: 0.3s;
+}
+
+.logo:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+
+.nav {
+    margin-left: auto;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0;
+    list-style: none;
+}
+
+.nav-item {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.nav-link {
+    font-style: var(--font-inter);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 50px;
+    color: var(--color-white);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--color-gold);
+}
+
+.lang {
+    margin: 0;
+    font-style: var(--font-inter);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 50px;
+    color: var(--color-white);
+}
+
+.lang-link {
+    color: var(--color-white);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.lang-link:hover {
+    color: var(--color-gold);
+}
+
+.lang-link.active {
+    color: var(--color-gold);
+}
+
+.lang-divider {
+    margin-right: 8px;
+    margin-left: 8px;
 }
