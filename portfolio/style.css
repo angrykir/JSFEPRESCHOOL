@@ -30,7 +30,6 @@ body {
     width: 1440px;
     margin: 0 auto;
     background-color: var(--color-dark);
-    outline: 1px solid var(--color-white);
 }
 
 .main-title {
@@ -219,16 +218,18 @@ body {
 /* Hero */
 
 .hero {
+    width: 100%;
+    padding-top: 10.97%;
+    padding-right: 80px;
+    padding-bottom: 22.92%;
+    padding-left: 80px;
     background-image: url('./assets/img/header-bg.jpg');
     background-position: center -90px;
     background-repeat: no-repeat;
 }
 
 .hero-container {
-    padding-top: 160px;
-    padding-right: 860px;
-    padding-bottom: 330px;
-    margin-left: 80px;
+    width: 500px;
 }
 
 .hero-text {
@@ -255,7 +256,6 @@ body {
     width: 100%;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 60px;
 }
 
 .skill-item {
@@ -266,6 +266,7 @@ body {
     padding-left: 20px;
     padding-bottom: 10px;
     padding-right: 20px;
+    margin-top: 60px;
     text-align: center;
     background-position: center top;
     background-repeat: no-repeat;
@@ -389,6 +390,7 @@ body {
 
 .price-items {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     justify-content: space-between;
 }
@@ -438,18 +440,22 @@ body {
 /* Contacts */
 
 .contacts {
+    width: 100%;
+    padding-top: 4.16%;
+    padding-right: 20px;
+    padding-bottom: 13.54%;
+    padding-left: 20px;
     background: url('./assets/img/contacts-bg.jpg');
     background-size: auto 700px;
     background-position: center center;
 }
 
 .contacts-container {
+    width: 450px;
+    margin-left: auto;
     display: flex;
     flex-direction: column;
-    padding-top: 60px;
-    padding-right: 20px;
-    padding-bottom: 195px;
-    padding-left: 970px;
+    
 }
 
 .contacts .section-title {
@@ -469,7 +475,7 @@ body {
     line-height: 40px;
     border: 2px solid var(--color-gold);
     color: var(--color-white);
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
     transition: 0.3s;
 }
@@ -507,7 +513,7 @@ body {
     line-height: 40px;
     border: 2px solid var(--color-gold);
     color: var(--color-white);
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
     transition: 0.3s;
     resize: none;
