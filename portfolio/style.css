@@ -27,7 +27,7 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    width: 1440px;
+    max-width: 1440px;
     margin: 0 auto;
     background-color: var(--color-dark);
 }
