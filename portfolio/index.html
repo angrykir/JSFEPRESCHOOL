@@ -17,6 +17,7 @@
 </head>
 
 <body>
+    <div class="overflow-wrapper">
     <div class="container">
         <header class="header">
             <div class="header-container">
@@ -30,6 +31,22 @@
                         <li class="nav-item"><a href="#contacts" class="link">Contacts</a></li>
                     </ul>
                 </nav>
+                <div class="menuToggle">
+                    <input type="checkbox" id="slide-menu-checkbox"/>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <nav class="slide-nav">
+                        <ul class="slide-nav-list" id="slide-nav-list">
+                            <li class="slide-nav-item"><a href="#skills" class="slide-link link">Skills</a></li>
+                            <li class="slide-nav-item"><a href="#portfolio" class="slide-link link">Portfolio</a></li>
+                            <li class="slide-nav-item"><a href="#video" class="slide-link link">Video</a></li>
+                            <li class="slide-nav-item"><a href="#price" class="slide-link link">Price</a></li>
+                            <li class="slide-nav-item"><a href="#contacts" class="slide-link link">Contacts</a></li>
+                            </a>
+                        </ul>
+                    </nav>
+                </div>
                 <p class="lang"><a href="#" class="lang-link active">en</a><span class="lang-divider">/</span><a
                         href="#" class="lang-link">ru</a></p>
             </div>
@@ -38,7 +55,8 @@
             <section class="hero">
                 <div class="hero-container">
                     <h1 class="main-title">Alexa Rise</h1>
-                    <p class="hero-text">Save sincere emotions, romantic feelings and happy&nbsp;moments of life together
+                    <p class="hero-text">Save sincere emotions, romantic feelings and happy&nbsp;moments of life
+                        together
                         with
                         professional photographer Alexa Rise</p>
                     <button class="button-cta">Hire me</button>
@@ -74,12 +92,12 @@
                     <button class="button-shadow active">Autumn</button>
                 </div>
                 <div class="portfolio-items">
-                    <img src="./assets/img/portfolio-img-1.jpg" alt="portfolio-img-1" width="450" height="560">
-                    <img src="./assets/img/portfolio-img-2.jpg" alt="portfolio-img-2" width="450" height="560">
-                    <img src="./assets/img/portfolio-img-3.jpg" alt="portfolio-img-3" width="450" height="560">
-                    <img src="./assets/img/portfolio-img-4.jpg" alt="portfolio-img-4" width="450" height="560">
-                    <img src="./assets/img/portfolio-img-5.jpg" alt="portfolio-img-5" width="450" height="560">
-                    <img src="./assets/img/portfolio-img-6.jpg" alt="portfolio-img-6" width="450" height="560">
+                    <img src="./assets/img/portfolio-img-1.jpg" alt="portfolio-img-1">
+                    <img src="./assets/img/portfolio-img-2.jpg" alt="portfolio-img-2">
+                    <img src="./assets/img/portfolio-img-3.jpg" alt="portfolio-img-3">
+                    <img src="./assets/img/portfolio-img-4.jpg" alt="portfolio-img-4">
+                    <img src="./assets/img/portfolio-img-5.jpg" alt="portfolio-img-5">
+                    <img src="./assets/img/portfolio-img-6.jpg" alt="portfolio-img-6">
                 </div>
             </section>
             <section class="video" id="video">
@@ -150,6 +168,7 @@
         </footer>
     </div>
     <script src="index.js"></script>
+</div>
 </body>
 
 </html>
