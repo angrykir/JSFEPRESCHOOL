@@ -103,3 +103,7 @@ themeToggle.addEventListener('click', changeTheme);
 
 // Local storage
 
+// let lang = en;
+// let theme = dark;git
+
+window.alert("\nПроверьте пожалуйста работу в среду. Немного не успел, в процессе.\n\n┬┴┬┴┤( ͡° ͜ʖ├┬┴┬┴");
