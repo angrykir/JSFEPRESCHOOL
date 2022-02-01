@@ -80,6 +80,7 @@ function changeClassActiveLang(event) {
         langBtnsArr.forEach((element) => element.classList.remove('active'));
     }
     event.target.classList.add('active');
+    lang === 'en' ? lang = 'ru' : lang = 'en';
 };
 langBtns.addEventListener('click', changeClassActiveLang);
 
@@ -97,13 +98,31 @@ function changeTheme(event) {
         themeToggleArr.forEach((element) => element.classList.toggle('light-theme'));
     }
     event.target.classList.toggle('light-theme');
+    theme === 'dark' ? theme = 'light' : theme = 'dark';
 };
-
 themeToggle.addEventListener('click', changeTheme);
 
 // Local storage
 
-// let lang = en;
-// let theme = dark;git
+var lang = 'en';
+var theme = 'dark';
 
-window.alert("\nПроверьте пожалуйста работу в среду. Немного не успел, в процессе.\n\n┬┴┬┴┤( ͡° ͜ʖ├┬┴┬┴");
+function setLocalStorage() {
+    localStorage.setItem('lang', lang);
+    localStorage.setItem('theme', theme);
+}
+window.addEventListener('beforeunload', setLocalStorage)
+
+function getLocalStorage() {
+    if (localStorage.getItem('lang')) {
+        const lang = localStorage.getItem('lang');
+        getTranslate(lang);
+    }
+    if (localStorage.getItem('theme')) {
+        const theme = localStorage.getItem('theme');
+        getTranslate(theme);
+    }
+}
+window.addEventListener('load', getLocalStorage);
+
+// window.alert("\nПроверьте пожалуйста работу в среду. Немного не успел, в процессе.\n\n┬┴┬┴┤( ͡° ͜ʖ├┬┴┬┴");
