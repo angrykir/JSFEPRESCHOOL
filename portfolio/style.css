@@ -110,7 +110,6 @@ body {
     background-color: var(--color-gold);
 }
 
-
 .button-cta {
     width: 220px;
     height: 55px;
@@ -164,7 +163,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    .header {    
+    .header {
         background-position: -5px -30px;
         background-size: auto 620px;
     }
@@ -185,7 +184,7 @@ body {
     transition: 0.3s;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .logo {
         margin-left: 40px;
     }
@@ -205,7 +204,7 @@ body {
     margin-left: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .nav {
         display: none;
     }
@@ -248,16 +247,9 @@ body {
     color: var(--color-white);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .lang {
-        margin-right: 114px;
         margin-left: auto;
-    }
-}
-
-@media (max-width: 620px) {
-    .lang {
-        margin-right: 84px;
     }
 }
 
@@ -280,6 +272,37 @@ body {
     margin-right: 8px;
     margin-left: 8px;
 }
+
+.theme-toogle {
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin-left: 30px;
+    background-image: url('./assets/svg/moon.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.theme-toogle:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+
+@media (max-width: 1024px) {
+    .theme-toogle {
+        margin-right: 114px;
+    }
+}
+
+@media (max-width: 620px) {
+    .theme-toogle {
+        margin-right: 69px;
+        margin-left: 15px;
+    }
+}
+
 
 /* Hero */
 
@@ -963,7 +986,7 @@ body {
     user-select: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .menuToggle {
         display: block;
         right: 64px;
@@ -1084,4 +1107,62 @@ body {
 .menuToggle input:checked~nav {
     transform: scale(1.0, 1.0);
     opacity: 1;
+}
+
+/* Light theme */
+
+.theme-toogle.light-theme {
+    background-image: url('./assets/svg/sun.svg');
+}
+
+.skills.light-theme {
+    background-color: var(--color-white);
+}
+
+.light-theme .section-title {
+    color: var(--color-dark);
+}
+
+.light-theme .skills-item {
+    color: var(--color-dark);
+}
+
+.light-theme .title-lines {
+    background-color: var(--color-white);
+}
+
+.light-theme .title-lines::before {
+    background-color: var(--color-dark);
+}
+
+.light-theme .title-lines::after {
+    background-color: var(--color-dark);
+}
+
+.portfolio.light-theme {
+    background-color: var(--color-white);
+}
+
+.light-theme .button-shadow {
+    color: var(--color-dark);
+}
+
+.light-theme .button-shadow:hover {
+    background-color: var(--color-gold);
+}
+
+.video.light-theme {
+    background-color: var(--color-white);
+}
+
+.price.light-theme {
+    background-color: var(--color-white);
+}
+
+.light-theme .price-title {
+    color: var(--color-dark);
+}
+
+.light-theme .price-component {
+    color: var(--color-dark);
 }
