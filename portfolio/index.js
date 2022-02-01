@@ -1,6 +1,6 @@
 // Self-review
 
-console.log('Ваша отметка - 83 балла(ов)\nОтзыв по пунктам ТЗ:\nЧастично выполненные пункты:\n1) секция video — 2 балл(а)');
+console.log('Ваша отметка - 85 балла(ов)\nОтзыв по пункам ТЗ:\nВсе пункты выполнены полностью!');
 
 // Close slide menu
 
@@ -137,7 +137,6 @@ function changeThemeFromStorage(theme) {
 };
 function changeLangFromStorage(lang) {
     if (lang === 'en') {
-        console.log('helo1');
         let dataI18Arr = document.querySelectorAll('[data-i18]');
         dataI18Arr.forEach((element) => {
             if (element.placeholder) {
@@ -151,7 +150,6 @@ function changeLangFromStorage(lang) {
         ruLanguage.classList.remove('active');
         gLang = 'en';
     } else {
-        console.log('helo2');
         let dataI18Arr = document.querySelectorAll('[data-i18]');
         dataI18Arr.forEach((element) => {
             if (element.placeholder) {
@@ -167,5 +165,3 @@ function changeLangFromStorage(lang) {
     }
 };
 window.addEventListener('load', getLocalStorage);
-
-// window.alert("\nПроверьте пожалуйста работу в среду. Немного не успел, в процессе.\n\n┬┴┬┴┤( ͡° ͜ʖ├┬┴┬┴");
