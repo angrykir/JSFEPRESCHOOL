@@ -55,12 +55,13 @@ const ruLanguage = document.querySelector('.ru-language');
 const enLanguage = document.querySelector('.en-language');
 
 function getTranslate(language) {
-    language.target === ruLanguage ? language = 'ru' : language = 'en'; 
+    language.target === ruLanguage ? language = 'ru' : language = 'en';
     let dataI18Arr = document.querySelectorAll('[data-i18]');
     dataI18Arr.forEach((element) => {
         if (element.placeholder) {
             element.placeholder = i18Obj[language][element.dataset.i18];
-            element.textContent = ''
+            element.textContent = '';
+            element.value = ''
         }
         element.textContent = i18Obj[language][element.dataset.i18];
     });
@@ -82,6 +83,27 @@ function changeClassActiveLang(event) {
 };
 langBtns.addEventListener('click', changeClassActiveLang);
 
+// Toggle theme
+
+const skills = document.querySelector('.skills');
+const portfolio = document.querySelector('.portfolio');
+const video = document.querySelector('.video');
+const price = document.querySelector('.price');
+const themeToggle = document.querySelector('.theme-toogle');
+const themeToggleArr = [skills, portfolio, video, price];
+
+function changeTheme(event) {
+    if (event.target.classList.contains('theme-toogle')) {
+        themeToggleArr.forEach((element) => element.classList.toggle('light-theme'));
+    }
+    event.target.classList.toggle('light-theme');
+};
+
+themeToggle.addEventListener('click', changeTheme);
+
+// Local storage
+
+// let lang = en;
+// let theme = dark;git
 
 window.alert("\nПроверьте пожалуйста работу в среду. Немного не успел, в процессе.\n\n┬┴┬┴┤( ͡° ͜ʖ├┬┴┬┴");
-
