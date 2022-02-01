@@ -1,6 +1,6 @@
 // Self-review
 
-console.log('Ваша отметка - 83 балла(ов)\nОтзыв по пунктам ТЗ:\nЧастично выполненные пункты:\n1) секция video — 2 балл(а)');
+console.log('Ваша отметка - 85 балла(ов)\nОтзыв по пункам ТЗ:\nВсе пункты выполнены полностью!');
 
 // Close slide menu
 
@@ -80,6 +80,7 @@ function changeClassActiveLang(event) {
         langBtnsArr.forEach((element) => element.classList.remove('active'));
     }
     event.target.classList.add('active');
+    gLang === 'en' ? gLang = 'ru' : gLang = 'en';
 };
 langBtns.addEventListener('click', changeClassActiveLang);
 
@@ -97,13 +98,70 @@ function changeTheme(event) {
         themeToggleArr.forEach((element) => element.classList.toggle('light-theme'));
     }
     event.target.classList.toggle('light-theme');
+    gTheme === 'dark' ? gTheme = 'light' : gTheme = 'dark';
 };
-
 themeToggle.addEventListener('click', changeTheme);
 
 // Local storage
 
-// let lang = en;
-// let theme = dark;git
+var gTheme = 'dark';
+var gLang = 'en';
 
-window.alert("\nПроверьте пожалуйста работу в среду. Немного не успел, в процессе.\n\n┬┴┬┴┤( ͡° ͜ʖ├┬┴┬┴");
+function setLocalStorage() {
+    localStorage.setItem('lang', gLang);
+    localStorage.setItem('theme', gTheme);
+};
+window.addEventListener('beforeunload', setLocalStorage);
+
+function getLocalStorage() {
+    if (localStorage.getItem('theme')) {
+        const theme = localStorage.getItem('theme');
+        changeThemeFromStorage(theme);
+    };
+    if (localStorage.getItem('lang')) {
+        const lang = localStorage.getItem('lang');
+        changeLangFromStorage(lang);
+    };
+};
+
+function changeThemeFromStorage(theme) {
+    if (theme === 'light') {
+        themeToggleArr.forEach((element) => element.classList.add('light-theme'));
+        themeToggle.classList.add('light-theme');
+        gTheme = 'light';
+    } else {
+        themeToggleArr.forEach((element) => element.classList.remove('light-theme'));
+        themeToggle.classList.remove('light-theme');
+        gTheme = 'dark';
+    }
+};
+function changeLangFromStorage(lang) {
+    if (lang === 'en') {
+        let dataI18Arr = document.querySelectorAll('[data-i18]');
+        dataI18Arr.forEach((element) => {
+            if (element.placeholder) {
+                element.placeholder = i18Obj['en'][element.dataset.i18];
+                element.textContent = '';
+                element.value = ''
+            }
+            element.textContent = i18Obj['en'][element.dataset.i18];
+        });
+        enLanguage.classList.add('active');
+        ruLanguage.classList.remove('active');
+        gLang = 'en';
+    } else {
+        let dataI18Arr = document.querySelectorAll('[data-i18]');
+        dataI18Arr.forEach((element) => {
+            if (element.placeholder) {
+                element.placeholder = i18Obj['ru'][element.dataset.i18];
+                element.textContent = '';
+                element.value = ''
+            }
+            element.textContent = i18Obj['ru'][element.dataset.i18];
+        });
+        ruLanguage.classList.add('active');
+        enLanguage.classList.remove('active');
+        gLang = 'ru';
+    }
+};
+window.addEventListener('load', getLocalStorage);
