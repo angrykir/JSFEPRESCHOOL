@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico">
+    <title>Audio-player</title>
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="audio-player">
+            <div class="cover"></div>
+            <div class="controls">
+                <div class="track-name">Группа крови</div>
+                <div class="track-artist">Кино</div>
+                <div class="buttons">
+                    <div class="button bttn-back"></div>
+                    <div class="button bttn-play"></div>
+                    <div class="button bttn-next"></div>
+                </div>
+                <div class="progress">
+                    <input type="range" class="progress-bar">
+                    <div class="current-time">5:00</div>
+                    <div class="duration-time">2:49</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer></footer>
+    <script type="module" src="index.js"></script>
 </body>
+
 </html>
