@@ -1,26 +1,17 @@
-// const playlist = {
-//     track1: {
-//         'audio' : './assets/audio/beyonce.mp3',
-//         'track-name' : 'Dont Hurt Yourself',
-//         'track-artist' : 'Beyonce',
-//         'cover' : './assets/img/lemonade.png',
-//     },
-//     track2: {
-//         'audio' : './assets/audio/dontstartnow.mp3',
-//         'track-name' : 'Dont Start Now',
-//         'track-artist' : 'Dua Lipa',
-//         'cover' : './assets/img/dontstartnow.png',
-//     }
-// }
+import playlist from './playlist.js';
 
-// console.log(Object.keys(playlist.track1))
+const playArr = Object.keys(playlist);
+console.log(playArr)
+
 let playNum = 0;
-const audioArr = ['./assets/audio/beyonce.mp3', './assets/audio/dontstartnow.mp3'];
-console.log(audioArr[playNum]);
+// const audioArr = ['./assets/audio/beyonce.mp3', './assets/audio/dontstartnow.mp3'];
 
-let audio = new Audio(audioArr[playNum]);
-console.log(audio);
-console.dir(audio);
+// let audio = new Audio(audioArr[playNum]);
+
+let audio = new Audio(playlist[playArr[playNum]]['audio']);
+document.querySelector(".track-name").textContent = playlist[playArr[playNum]]['track-name'];
+document.querySelector(".track-artist").textContent = playlist[playArr[playNum]]['track-artist'];
+document.querySelector(".cover").style.backgroundImage = `url(${(playlist[playArr[playNum]]['cover'])})`;
 
 
 const audioPlayer = document.querySelector(".audio-player");
@@ -71,23 +62,31 @@ const playNext = () => {
     } else {
         playNum += 1;
     }
+    console.log(playNum);
+    // console.log(curretAudio);
     audio.pause();
-    audio = new Audio(audioArr[playNum]);
+    gitaudio = new Audio(playlist[playArr[playNum]]['audio']);
+    document.querySelector(".track-name").textContent = playlist[playArr[playNum]]['track-name'];
+    document.querySelector(".track-artist").textContent = playlist[playArr[playNum]]['track-artist'];
+    document.querySelector(".cover").style.backgroundImage = `url(${(playlist[playArr[playNum]]['cover'])})`;
     audio.play();
     getDurationTime();
-    console.log(durationTime);
 };
 bttnNext.addEventListener("click", playNext);
 
 const playBack = () => {
-    if (playNum < 0) {
-        playNum = audioArr.length - 1;
+    if (playNum <= 0) {
+        playNum = playArr.length - 1;
     } else {
         playNum -= 1;
     }
     audio.pause();
-    audio = new Audio(audioArr[playNum]);
+    audio = new Audio(playlist[playArr[playNum]]['audio']);
+    document.querySelector(".track-name").textContent = playlist[playArr[playNum]]['track-name'];
+    document.querySelector(".track-artist").textContent = playlist[playArr[playNum]]['track-artist'];
+    document.querySelector(".cover").style.backgroundImage = `url(${(playlist[playArr[playNum]]['cover'])})`;
     audio.play();
+    getDurationTime();
 };
 bttnBack.addEventListener("click", playBack);
 

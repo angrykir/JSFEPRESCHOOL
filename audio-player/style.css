@@ -27,6 +27,7 @@ body {
 .cover {
     height: 246px;
     background-color: darkkhaki;
+    background-position: center;
 }
 
 .buttons {
