@@ -1,3 +1,5 @@
+console.log('Ваша отметка - 70 балла(ов)\nОтзыв по пункам ТЗ:\nВсе пункты выполнены полностью!');
+
 import playlist from './playlist.js'; // импорт треклиста
 
 const playArr = Object.keys(playlist); 
