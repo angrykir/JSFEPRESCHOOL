@@ -1,44 +1,18 @@
-import playlist from './playlist.js';
+import playlist from './playlist.js'; // импорт треклиста
 
-const playArr = Object.keys(playlist);
-console.log(playArr)
+const playArr = Object.keys(playlist); 
 
 let playNum = 0;
-// const audioArr = ['./assets/audio/beyonce.mp3', './assets/audio/dontstartnow.mp3'];
-
-// let audio = new Audio(audioArr[playNum]);
 
 let audio = new Audio(playlist[playArr[playNum]]['audio']);
 document.querySelector(".track-name").textContent = playlist[playArr[playNum]]['track-name'];
 document.querySelector(".track-artist").textContent = playlist[playArr[playNum]]['track-artist'];
 document.querySelector(".cover").style.backgroundImage = `url(${(playlist[playArr[playNum]]['cover'])})`;
 
-
 const audioPlayer = document.querySelector(".audio-player");
+const coverTrack = document.querySelector(".cover");
 
-
-
-const bttnPlay = audioPlayer.querySelector(".bttn-play");
-bttnPlay.addEventListener(
-    "click",
-    () => {
-        if (audio.paused) {
-            bttnPlay.classList.remove("play");
-            bttnPlay.classList.add("pause");
-            audio.play();
-        } else {
-            bttnPlay.classList.remove("pause");
-            bttnPlay.classList.add("play");
-            audio.pause();
-        }
-    },
-    false
-);
-
-
-const bttnBack = audioPlayer.querySelector(".bttn-back");
-const bttnNext = audioPlayer.querySelector(".bttn-next");
-
+// получить длительность трека
 
 let getDurationTime = () => {
     audio.addEventListener(
@@ -47,7 +21,6 @@ let getDurationTime = () => {
             audioPlayer.querySelector(".duration-time").textContent = getTimeCodeFromNum(
                 audio.duration
             );
-            //   audio.volume = .75;
         },
         false
     );
@@ -55,6 +28,31 @@ let getDurationTime = () => {
 
 getDurationTime()
 
+// кнопка играть-пауза
+
+const bttnPlay = audioPlayer.querySelector(".bttn-play");
+bttnPlay.addEventListener(
+    "click",
+    () => {
+        if (audio.paused) {
+            coverTrack.classList.add("increase");
+            bttnPlay.classList.remove("play");
+            bttnPlay.classList.add("pause");
+            audio.play();
+        } else {
+            coverTrack.classList.remove("increase");
+            bttnPlay.classList.remove("pause");
+            bttnPlay.classList.add("play");
+            audio.pause();
+        }
+    },
+    false
+);
+
+// кнопки предыдущий и следующий трек
+
+const bttnBack = audioPlayer.querySelector(".bttn-back");
+const bttnNext = audioPlayer.querySelector(".bttn-next");
 
 const playNext = () => {
     if (playNum >= 1) {
@@ -62,15 +60,17 @@ const playNext = () => {
     } else {
         playNum += 1;
     }
-    console.log(playNum);
-    // console.log(curretAudio);
     audio.pause();
-    gitaudio = new Audio(playlist[playArr[playNum]]['audio']);
+    audio = new Audio(playlist[playArr[playNum]]['audio']);
     document.querySelector(".track-name").textContent = playlist[playArr[playNum]]['track-name'];
     document.querySelector(".track-artist").textContent = playlist[playArr[playNum]]['track-artist'];
     document.querySelector(".cover").style.backgroundImage = `url(${(playlist[playArr[playNum]]['cover'])})`;
+    coverTrack.classList.add("increase");
+    bttnPlay.classList.remove("play");
+    bttnPlay.classList.add("pause");
     audio.play();
     getDurationTime();
+    buildAudioGraph();
 };
 bttnNext.addEventListener("click", playNext);
 
@@ -85,11 +85,16 @@ const playBack = () => {
     document.querySelector(".track-name").textContent = playlist[playArr[playNum]]['track-name'];
     document.querySelector(".track-artist").textContent = playlist[playArr[playNum]]['track-artist'];
     document.querySelector(".cover").style.backgroundImage = `url(${(playlist[playArr[playNum]]['cover'])})`;
+    coverTrack.classList.add("increase");
+    bttnPlay.classList.remove("play");
+    bttnPlay.classList.add("pause");
     audio.play();
     getDurationTime();
+    buildAudioGraph();
 };
 bttnBack.addEventListener("click", playBack);
 
+// установка таймлайна
 
 const timelineBar = audioPlayer.querySelector(".timeline-bar");
 
@@ -99,6 +104,7 @@ timelineBar.addEventListener("click", e => {
     audio.currentTime = timeToSeek;
 }, false);
 
+// время проигрывания трека
 
 setInterval(() => {
     const progressBar = audioPlayer.querySelector(".progress-bar");
@@ -108,6 +114,7 @@ setInterval(() => {
     );
 }, 500);
 
+// секунды в формат 0:00
 
 function getTimeCodeFromNum(num) {
     let seconds = parseInt(num);
@@ -121,3 +128,86 @@ function getTimeCodeFromNum(num) {
         seconds % 60
     ).padStart(2, 0)}`;
 };
+
+// визуализация
+
+var audioCtx = window.AudioContext || window.webkitAudioContext;
+
+var canvas;
+var audioContext, canvasContext;
+var analyser;
+var width, height;
+
+var dataArray, bufferLength;
+
+window.onload = function () {
+    audioContext = new audioCtx();
+
+    canvas = document.querySelector("#myCanvas");
+    width = canvas.width;
+    height = canvas.height;
+    canvasContext = canvas.getContext('2d');
+
+    buildAudioGraph();
+
+    requestAnimationFrame(visualize);
+};
+
+function buildAudioGraph() {
+    var mediaElement = audio;
+    mediaElement.onplay = (e) => { audioContext.resume(); }
+
+    // исправлено для политики автозапуска
+    mediaElement.addEventListener('play', () => audioContext.resume());
+
+    var sourceNode = audioContext.createMediaElementSource(mediaElement);
+
+    // Создать узел анализатора
+    analyser = audioContext.createAnalyser();
+
+    // Попробуйте изменить на более низкие значения: 512, 256, 128, 64 ...
+    analyser.fftSize = 128;
+    bufferLength = analyser.frequencyBinCount;
+    dataArray = new Uint8Array(bufferLength);
+
+    sourceNode.connect(analyser);
+    analyser.connect(audioContext.destination);
+}
+
+function visualize() {
+    // очистить canvas
+    canvasContext.clearRect(0, 0, width, height);
+
+    // Или используйте заливку RGBA, чтобы получить небольшой эффект размытия
+    // canvasContext.fillStyle = 'rgba (0, 0, 0, 0.5)';
+    // canvasContext.fillRect(0, 0, width, height);
+
+    // Получить данные анализатора
+    analyser.getByteFrequencyData(dataArray);
+
+    // var barWidth = width / bufferLength;
+    var barWidth = 35;
+    var barHeight, heightScale;
+    var x = 0;
+
+    // значения изменяются от 0 до 256, а высота холста равна 100. Давайте изменим масштаб
+    // перед отрисовкой. Это масштабный коэффициент
+    heightScale = height / 128;
+
+    for (var i = 0; i < bufferLength; i++) {
+        barHeight = dataArray[i];
+
+
+        // canvasContext.fillStyle = 'rgb(' + (barHeight+0) + ',4,160)';
+        canvasContext.fillStyle = 'black';
+        barHeight *= heightScale;
+        canvasContext.fillRect(x, height - barHeight / 2, barWidth, barHeight / 2);
+
+        // 2 - количество пикселей между столбцами
+        x += barWidth - 2;
+    }
+
+    // вызовите снова функцию визуализации со скоростью 60 кадров / с
+    requestAnimationFrame(visualize);
+
+}
