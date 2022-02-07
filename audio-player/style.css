@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    font-family: 'Jost', sans-serif;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background-color: cadetblue;
+    animation: color-me-in 5s infinite;
+}
+
+@keyframes color-me-in {
+    50% {
+        background: #64e4ed;
+    }
+
+    50% {
+        background: #025721;
+    }
+
+    50% {
+        background: #01232e;
+    }
+
+    50% {
+        background: #64e4ed;
+    }
+}
+
+.player-wrapper {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+
+}
+
+.audio-player {
+    width: 333px;
+    height: 399px;
+    background-color: cornsilk;
+}
+
+.cover {
+    height: 246px;
+    background-color: darkkhaki;
+    background-position: center;
+    background-size: 100%;
+    transition: 0.3s;
+}
+
+.cover.increase {
+    background-size: 120%;
+    transition: 0.5s;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    width: 24px;
+    height: 24px;
+}
+
+.button.play {
+    width: 40px;
+    height: 40px;
+    background-image: url('./assets/svg/play.svg');
+    background-position: center;
+    background-size: 100%;
+}
+
+.button.pause {
+    width: 40px;
+    height: 40px;
+    background-image: url('./assets/svg/pause.svg');
+    background-position: center;
+    background-size: 100%;
+}
+
+.button.bttn-back {
+    background-image: url('./assets/svg/play-back.svg');
+}
+
+.button.bttn-next {
+    background-image: url('./assets/svg/play-next.svg');
+}
+
+.time {
+    display: flex;
+    justify-content: space-between;
+}
+
+.timeline-bar {
+    height: 10px;
+    background-color: black;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: tomato;
+}
+
+
+#myCanvas {
+    width: 100%;
+    height: 230px;
+    display: flex;
+}
+
+
+footer {
+    height: 250px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 0;
+    gap: 50px;
+    color: white;
+    background-color: black;
+    font-size: 18px;
+}
+
+.github {
+    height: 70px;
+}
+
+.rs-school-js {
+    height: 53px;
+}
