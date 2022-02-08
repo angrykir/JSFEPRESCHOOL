@@ -25,8 +25,8 @@ const playlist = {
     },
     track5: {
         'audio' : './assets/audio/Cheri Cheri Lady.mp3',
-        'track-name' : 'Modern Talking',
-        'track-artist' : 'Brad Fiedel',
+        'track-name' : 'Cheri Cheri Lady',
+        'track-artist' : 'Modern Talking',
         'cover' : './assets/img/CheriCheriLady.jfif',
     },
     track6: {
