@@ -12,6 +12,7 @@ body {
 }
 
 .container {
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -44,20 +45,35 @@ body {
     display: flex;
     flex-grow: 1;
     align-items: center;
-
+    padding: 15px;
 }
 
 .audio-player {
-    width: 333px;
-    height: 399px;
-    background-color: cornsilk;
+    width: 377px;
+    height: 630px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    padding-top: 24px;
+    padding-right: 30px;
+    padding-bottom: 24px;
+    padding-left: 30px;
+    border-radius: 30px;
+    background: url(./assets/img/noise.png), linear-gradient(180deg, #F2F2F2 0%, #ADADAD 100%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-shrink: 0;
     height: 246px;
     background-color: darkkhaki;
     background-position: center;
     background-size: 100%;
+    border-radius: 8px;
+    border: 6px solid #28282A;
     transition: 0.3s;
 }
 
@@ -66,10 +82,59 @@ body {
     transition: 0.5s;
 }
 
+.duration-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.9) 100%);
+    border-radius: 0 0 2px 2px;
+}
+
+.duration {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.track-name {
+    font-weight: 700;
+}
+
+.track-artist {
+    line-height: 22px;
+    margin-bottom: 8px;
+}
+
+.timeline-bar {
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(180deg, #FFFFFD 0%, #F3EFEC 48.44%, #EBE7E4 51.04%, #F1EDEC 100%);
+    border: 1px solid #C5C3C4;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(180deg, #83ADD7 0%, #58A1D6 30.61%, #2B8EC9 50.52%, #01A0DA 68.64%, #01AFE4 100%)
+}
+
+.controls {
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 60px;
+    margin-bottom: 36px;
+}
+
 .buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 24px;
+    z-index: 100;
 }
 
 .button {
@@ -77,17 +142,22 @@ body {
     height: 24px;
 }
 
+.button:hover {
+    cursor: pointer;
+    filter: invert(52%) sepia(37%) saturate(5857%) hue-rotate(165deg) brightness(99%) contrast(98%);
+}
+
 .button.play {
-    width: 40px;
-    height: 40px;
+    width: 82px;
+    height: 82px;
     background-image: url('./assets/svg/play.svg');
     background-position: center;
     background-size: 100%;
 }
 
 .button.pause {
-    width: 40px;
-    height: 40px;
+    width: 82px;
+    height: 82px;
     background-image: url('./assets/svg/pause.svg');
     background-position: center;
     background-size: 100%;
@@ -95,38 +165,41 @@ body {
 
 .button.bttn-back {
     background-image: url('./assets/svg/play-back.svg');
+    background-position: center;
+    background-size: 100%;
 }
 
 .button.bttn-next {
     background-image: url('./assets/svg/play-next.svg');
+    background-position: center;
+    background-size: 100%;
 }
 
-.time {
-    display: flex;
-    justify-content: space-between;
+.round-big {
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    margin-top: -120px;
+    margin-left: -114px;
+    border-radius: 115px;
+    border: solid 1px #AEADAD;
+    background-color: white;
 }
-
-.timeline-bar {
-    height: 10px;
-    background-color: black;
-}
-
-.progress-bar {
-    width: 0;
-    height: 100%;
-    background-color: tomato;
-}
-
 
 #myCanvas {
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    height: 230px;
+    height: 30%;
     display: flex;
+    z-index: 0;
 }
 
-
 footer {
-    height: 250px;
+    height: 20%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -143,4 +216,8 @@ footer {
 
 .rs-school-js {
     height: 53px;
+}
+
+footer a:hover {
+    filter: invert(52%) sepia(37%) saturate(5857%) hue-rotate(165deg) brightness(99%) contrast(98%);
 }
