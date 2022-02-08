@@ -57,7 +57,7 @@ const bttnBack = audioPlayer.querySelector(".bttn-back");
 const bttnNext = audioPlayer.querySelector(".bttn-next");
 
 const playNext = () => {
-    if (playNum >= 1) {
+    if (playNum >= playArr.length - 1) {
         playNum = 0;
     } else {
         playNum += 1;
