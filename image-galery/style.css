@@ -59,17 +59,28 @@ footer {
 .search {
     display: flex;
     width: 600px;
-    height: 50px;
-    font-size: 18px;
+    height: 60px;
 }
 
 .search-input {
-    width: 70%;
+    width: 100%;
+    padding-top: 4px;
+    padding-right: 12px;
+    padding-bottom: 4px;
+    padding-left: 12px;
+    font-size: 20px;
 }
-
 
 .search-button {
     width: 30%;
+    background-color: black;
+    font-size: 20px;
+    color: white;
+}
+
+.search-button:hover {
+    cursor: pointer;
+    color: #03A1D1;
 }
 
 .img-gallery {

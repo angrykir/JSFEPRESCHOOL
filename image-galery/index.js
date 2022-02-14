@@ -4,12 +4,12 @@ console.log('Ваша отметка - 0');
 
 const searchButton = document.querySelector('.search-button');
 const container = document.querySelector('.img-gallery');
-let searchInput = document.querySelector('.search-input');
+const searchInput = document.querySelector('.search-input');
 
 
 async function getData() {
-    let searchValue = document.querySelector('.search-input').value;
-    let url = `https://api.unsplash.com/photos/random?client_id=93CP8sFIk9se3z_DBsnPNsJAcj-1xeOPPtf2yzbAJSM&count=3&query=${searchValue}`;
+    const searchValue = document.querySelector('.search-input').value;
+    const url = `https://api.unsplash.com/photos/random?client_id=93CP8sFIk9se3z_DBsnPNsJAcj-1xeOPPtf2yzbAJSM&count=3&query=${searchValue}`;
     const res = await fetch(url);
     const data = await res.json();
     console.log(data);
@@ -24,4 +24,9 @@ function showData(data) {
     });
 }
 
+searchInput.addEventListener('keydown', (event) => {
+    if (event.keyCode === 13) {
+        getData();
+    }
+});
 searchButton.addEventListener("click", getData);
