@@ -68,6 +68,17 @@ footer {
     width: 30%;
 }
 
+.img-gallery {
+    display: flex;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.img-gallery img{
+    width: auto;
+    height: 350px;
+}
+
 .github {
     height: 70px;
 }
