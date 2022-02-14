@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background-color: cadetblue;
+    animation: color-me-in 5s infinite;
+}
+
+@keyframes color-me-in {
+    50% {
+        background: #64e4ed;
+    }
+
+    50% {
+        background: #025721;
+    }
+
+    50% {
+        background: #01232e;
+    }
+
+    50% {
+        background: #64e4ed;
+    }
+}
+
+footer {
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 0;
+    gap: 50px;
+    color: white;
+    background-color: black;
+    font-size: 18px;
+}
+
+.github {
+    height: 70px;
+}
+
+.rs-school-js {
+    height: 53px;
+}
+
+footer a:hover {
+    filter: invert(52%) sepia(37%) saturate(5857%) hue-rotate(165deg) brightness(99%) contrast(98%);
+}
