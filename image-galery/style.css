@@ -52,6 +52,22 @@ footer {
     font-size: 18px;
 }
 
+.search {
+    display: flex;
+    width: 600px;
+    height: 50px;
+    font-size: 18px;
+}
+
+.search-input {
+    width: 70%;
+}
+
+
+.search-button {
+    width: 30%;
+}
+
 .github {
     height: 70px;
 }
