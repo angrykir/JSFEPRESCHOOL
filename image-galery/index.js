@@ -38,3 +38,5 @@ searchInput.addEventListener('keydown', (event) => {
     }
 });
 searchButton.addEventListener("click", getData);
+
+getData()
