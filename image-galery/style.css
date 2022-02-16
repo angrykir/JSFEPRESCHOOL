@@ -17,49 +17,20 @@ body {
 .container {
     position: relative;
     width: 100%;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-    background-color: cadetblue;
-    animation: color-me-in 5s infinite;
-}
-
-@keyframes color-me-in {
-    50% {
-        background: #64e4ed;
-    }
-
-    50% {
-        background: #025721;
-    }
-
-    50% {
-        background: #01232e;
-    }
-
-    50% {
-        background: #64e4ed;
-    }
-}
-
-footer {
-    height: 20%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-grow: 0;
-    gap: 50px;
-    color: white;
-    background-color: black;
-    font-size: 18px;
+    background-image: linear-gradient(#eee, #aaa);
 }
 
 .search {
     display: flex;
-    width: 600px;
+    width: 560px;
     height: 60px;
+    box-shadow: 0 0 5px 0 rgb(0 0 0 / 25%) inset, 0 5px 10px 5px rgb(0 0 0 / 25%) ;  
 }
 
 .search-input {
@@ -69,32 +40,94 @@ footer {
     padding-bottom: 4px;
     padding-left: 12px;
     font-size: 20px;
+    border: 0;
+    background-color: #fff;
 }
+
+.search-input:focus {
+    border: 2px solid #03A1D1;
+    outline: none;
+    padding: 0 10px;
+} 
 
 .search-button {
     width: 30%;
-    background-color: black;
+    background-color: #ddc;
     font-size: 20px;
-    color: white;
+    color: black;
+    border: 0;
 }
 
 .search-button:hover {
     cursor: pointer;
-    color: #03A1D1;
+    background-color: #03A1D1;
 }
 
 .img-gallery {
+    min-height: 400px;
     display: flex;
-    gap: 30px;
-    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 48px;
+    margin-top: 80px;
 }
 
-.img-gallery img{
+.img-gallery img {
     width: auto;
-    height: 350px;
+    height: 400px;
+    border: solid 24px;
+    border-radius: 2px;
+    border-bottom-color: #fff;
+    border-left-color: #eee;
+    border-right-color: #eee;
+    border-top-color: #ddd;
+    background-color: #ddc;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .25) inset, 0 5px 10px 5px rgba(0, 0, 0, .25);
+    box-sizing: border-box;
+    padding: 48px;
+    text-align: center;
+}
+
+.img-gallery div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+}
+
+.img-gallery a {
+    font-family: 'Comforter Brush', cursive;
+    font-size: 32px;
+    text-decoration: none;
+}
+
+.img-gallery a:hover {
+    color: #BD2026;
+}
+
+.errors {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    color: #BD2026;
+}
+
+footer {
+    height: 20%;
+    min-height: 130px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 0;
+    gap: 50px;
+    color: white;
+    background-color: black;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
 }
 
 .github {
+    width: 130px;
     height: 70px;
 }
 

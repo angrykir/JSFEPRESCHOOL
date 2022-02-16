@@ -1,9 +1,7 @@
-window.alert("\nПривет! Проверьте пожалуйста работу в четверг. Не успел, в процессе...\n\n┬┴┬┴┤( ͡° ͜ʖ├┬┴┬┴");
-
-console.log('Ваша отметка - 0');
+console.log('Ваша отметка - 70 балла(ов)\nОтзыв по пункам ТЗ:\nВсе пункты выполнены полностью!');
 
 const searchButton = document.querySelector('.search-button');
-const container = document.querySelector('.img-gallery');
+const imgGallery = document.querySelector('.img-gallery');
 const searchInput = document.querySelector('.search-input');
 
 
@@ -13,14 +11,24 @@ async function getData() {
     const res = await fetch(url);
     const data = await res.json();
     console.log(data);
-    data.forEach(element => console.log(element.urls.regular));
-    showData(data);
+    console.log(Object.keys(data));
+    document.querySelectorAll(".frame").forEach(element => element.remove());
+    document.querySelectorAll(".errors").forEach(element => element.remove());
+    const checkError = Object.keys(data);
+    if (checkError[0] === 'errors') {
+        const img = `<span class="errors">${data.errors}</span>`;
+        imgGallery.insertAdjacentHTML('beforeend', img);
+    } else {
+        showData(data);
+    }
 }
+
+// if (Object.keys(data) === ['errors']){
 
 function showData(data) {
     data.forEach(element => {
-        const img = `<img src="${element.urls.regular}">`;
-        container.insertAdjacentHTML('beforeend', img);
+        const img = `<div class="frame"><img src="${element.urls.small}" alt="image"><a href="${element.links.html}" target="_blank">${element.user.name}</a></div>`;
+        imgGallery.insertAdjacentHTML('beforeend', img);
     });
 }
 
