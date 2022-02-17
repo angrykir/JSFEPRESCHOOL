@@ -14,16 +14,13 @@ async function getData() {
     console.log(Object.keys(data));
     document.querySelectorAll(".frame").forEach(element => element.remove());
     document.querySelectorAll(".errors").forEach(element => element.remove());
-    const checkError = Object.keys(data);
-    if (checkError[0] === 'errors') {
+    if ((Object.keys(data)[0]) === 'errors') {
         const img = `<span class="errors">${data.errors}</span>`;
         imgGallery.insertAdjacentHTML('beforeend', img);
     } else {
         showData(data);
     }
 }
-
-// if (Object.keys(data) === ['errors']){
 
 function showData(data) {
     data.forEach(element => {
