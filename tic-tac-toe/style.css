@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background-image: linear-gradient(#eee, #aaa);
+}
+
+footer {
+    height: 20%;
+    min-height: 130px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 0;
+    gap: 50px;
+    color: white;
+    background-color: black;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+}
+
+.github {
+    width: 130px;
+    height: 70px;
+}
+
+.rs-school-js {
+    height: 53px;
+}
+
+footer a:hover {
+    filter: invert(52%) sepia(37%) saturate(5857%) hue-rotate(165deg) brightness(99%) contrast(98%);
+}
