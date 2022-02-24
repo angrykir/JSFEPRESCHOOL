@@ -11,7 +11,7 @@ field.addEventListener('click', e => {
     if (e.target.className === 'cell' && e.target.className !== 'checked') {
         e.target.classList.add('checked');
         move % 2 === 0 ? e.target.textContent = 'X' : e.target.textContent = '0';
-        move % 2 === 1 ? goesField.textContent = `Ход ${move + 1} / Очередь X` : goesField.textContent = `Ход ${move + 2} / Очередь 0`;
+        move % 2 === 1 ? goesField.textContent = `Ход ${move + 2} / Очередь X` : goesField.textContent = `Ход ${move + 2} / Очередь 0`;
         move++;
         check()
     }
@@ -76,7 +76,6 @@ const outputWinner = () => {
     goesField.textContent = `На ${move} ходу ${winner}!`;
     wonArr.unshift(`На ${move} ходу ${winner}!`);
     wonArr.splice(-1, 1);
-    console.log(wonArr);
     for (let i = 0; i < wonList.length; i++) {
         wonList[i].textContent = `${wonArr[i]}`;
     }
